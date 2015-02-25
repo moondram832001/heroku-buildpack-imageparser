@@ -1,0 +1,21 @@
+#!/bin/sh
+
+set -e
+
+BUILD_DIR=$1
+CACHE_DIR=$2
+
+echo "-----> Installing imageparser"
+
+# change to the the BUILD_DIR ($1)
+cd $1
+
+# download the binary (-O) silently (-s)
+curl https://www.dropbox.com/s/trodm08v0t90h9o/color_trace-0.02.tar.gz?dl=0 -s -O -L
+
+# make a directory to untar (like unzip) the binary
+mkdir -p vendor/imageparser
+
+# untar the binary to the directory we want
+tar -C vendor/imageparser -xvf color_trace-0.02.tar.gz?dl=0
+
